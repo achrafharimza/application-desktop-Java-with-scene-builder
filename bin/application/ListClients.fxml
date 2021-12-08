@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="796.0" style="-fx-background-color: #A13333;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ListClientsController">
+   <children>
+      <TableView fx:id="TableofClient" layoutX="5.0" layoutY="65.0" prefHeight="340.0" prefWidth="786.0">
+        <columns>
+          <TableColumn fx:id="Nbadge" prefWidth="75.0" text="Nbadge" />
+          <TableColumn fx:id="NomEntreprise" prefWidth="100.0" text="Nom-Entreprise" />
+            <TableColumn fx:id="DateDebut" prefWidth="75.0" text="Date-Debut" />
+            <TableColumn fx:id="Prenom" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="Nom" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="CNIPassport" prefWidth="88.79998779296875" text="CNI/Passport" />
+            <TableColumn fx:id="Phone" prefWidth="61.600006103515625" text="Phone" />
+            <TableColumn fx:id="Email" prefWidth="75.0" text="Email" />
+            <TableColumn prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="Adresse" prefWidth="75.0" text="Adresse" />
+        </columns>
+      </TableView>
+      <Text layoutX="311.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Clients" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #461111;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="application.SampleController">
+   <children>
+      <TextField fx:id="userText" layoutX="129.0" layoutY="169.0" promptText="Username" />
+      <TextField fx:id="passText" layoutX="130.0" layoutY="234.0" promptText="Password" />
+      <Button layoutX="155.0" layoutY="304.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #B3541E;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="155.0" layoutY="350.0" mnemonicParsing="false" onAction="#registre" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #B3541E;" text="Registre" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="105.0" fitWidth="200.0" layoutX="152.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Desktop/utilisateur.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Allo" layoutX="12.0" layoutY="44.0" mnemonicParsing="false" onAction="#Allo" prefHeight="26.0" prefWidth="73.0" text="Allo" />
+   </children>
+</AnchorPane>
