@@ -123,7 +123,16 @@ public class Page2Controller implements Initializable {
 	    
 	    @FXML
 	    private Button ChartButt;
+	/////////////////////////////////
 	    
+	    
+//	    RadioButton selectedRadioButton=(RadioButton) SEARCHG.getSelectedToggle();
+//		String	FilterS =selectedRadioButton.getText();
+//		
+//		if (selectedRadioButton ==null) {
+//			FilterS ="Prenom";
+//         }
+		
 	    
 /////////////////////////////////////////////////////////
 	    @SuppressWarnings({ "unchecked", "unlikely-arg-type" })

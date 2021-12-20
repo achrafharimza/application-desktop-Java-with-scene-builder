@@ -24,9 +24,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -38,19 +40,19 @@ public class ListClientsController implements Initializable {
 	    private TableColumn<Client, String> Adresse;
 
 	    @FXML
-	    private TableColumn<Client, String> CNIPassport;
+	    private TableColumn<Client, String> CNIPassportT;
 
 	    @FXML
 	    private TableColumn<Client, Date> DateDebut;
 
 	    @FXML
-	    private TableColumn<Client, String> Email;
+	    private TableColumn<Client, String> EmailT;
 
 	    @FXML
 	    private TableColumn<Client, String> Nbadge;
 
 	    @FXML
-	    private TableColumn<Client, String> Nom;
+	    private TableColumn<Client, String> NomT;
 
 	    @FXML
 	    private TableColumn<Client, String> NomEntreprise;
@@ -59,7 +61,7 @@ public class ListClientsController implements Initializable {
 	    private TableColumn<Client, String> Phone;
 
 	    @FXML
-	    private TableColumn<Client, String> Prenom;
+	    private TableColumn<Client, String> PrenomT;
 
 	    @FXML
 	    private TableView<Client> TableofClient;
@@ -75,7 +77,19 @@ public class ListClientsController implements Initializable {
 	    @FXML
 	    private Button QuitterButton;
 	    
+	    @FXML
+	    private ToggleGroup recherche;
+	    @FXML
+	    private RadioButton Nom;
+	    @FXML
+	    private RadioButton Email;
 
+	    @FXML
+	    private RadioButton IdentificationNumt;
+	   
+	    
+
+		@SuppressWarnings("unused")
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			// TODO Auto-generated method stub
@@ -119,11 +133,11 @@ public class ListClientsController implements Initializable {
 			
 			
 		   
-		    	 Prenom.setCellValueFactory(new PropertyValueFactory<Client,String>("Prenom"));
-		    	 Nom.setCellValueFactory(new PropertyValueFactory<Client,String>("Nom"));
+		    	 PrenomT.setCellValueFactory(new PropertyValueFactory<Client,String>("Prenom"));
+		    	 NomT.setCellValueFactory(new PropertyValueFactory<Client,String>("Nom"));
 		    	 NomEntreprise.setCellValueFactory(new PropertyValueFactory<Client,String>("NomEntreprise"));
-		    	 CNIPassport.setCellValueFactory(new PropertyValueFactory<Client,String>("CNIPassport"));
-		    	 Email.setCellValueFactory(new PropertyValueFactory<Client,String>("Email"));
+		    	 CNIPassportT.setCellValueFactory(new PropertyValueFactory<Client,String>("CNIPassport"));
+		    	 EmailT.setCellValueFactory(new PropertyValueFactory<Client,String>("Email"));
 		    	 Nbadge.setCellValueFactory(new PropertyValueFactory<Client,String>("Nbadge"));
 		    	 Adresse.setCellValueFactory(new PropertyValueFactory<Client,String>("Adresse"));
 		    	 Phone.setCellValueFactory(new PropertyValueFactory<Client,String>("Phone"));
@@ -138,6 +152,12 @@ public class ListClientsController implements Initializable {
 		    				
 		    			
 		    			String searchstring =newValue.toLowerCase();
+		    			 RadioButton selectedRadioButton=(RadioButton) recherche.getSelectedToggle();
+		    			  
+		    				String	FilterS =selectedRadioButton.getText();
+		    				
+		    			
+		    			 
 		    			
 		    			try {
 		    				
@@ -145,11 +165,12 @@ public class ListClientsController implements Initializable {
 		    				DataBConnect DataBConnect =new DataBConnect();
 		    				Connection connection =DataBConnect.getConnection();
 		    			
+		    				System.out.println("fffffffffffffff");
+		    				System.out.println(FilterS);
+		    				ResultSet result2 = connection.createStatement().executeQuery("SELECT * FROM breif.clients where "+ FilterS +" LIKE '%"+searchstring+"%'");
 		    				
-		    				ResultSet result2 = connection.createStatement().executeQuery("SELECT * FROM breif.clients where  Prenom LIKE '"+searchstring+"%'or Nom LIKE '"+searchstring+"%' ;");
-		    				
-		    				 ObservableList<Client> listF = FXCollections.observableArrayList();
 		    				 
+		    				ObservableList<Client> listF = FXCollections.observableArrayList();
 		    				 while (result2.next()){
 		    					 listF.add(new Client(
 		    							 
